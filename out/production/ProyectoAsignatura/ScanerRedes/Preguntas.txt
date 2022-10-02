@@ -1,0 +1,3 @@
+Creaar las clases que heredara menu consola
+opcion menu se extiende en las clases que se heredan
+el to string en clase que se hereda
