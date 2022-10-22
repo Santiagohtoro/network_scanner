@@ -14,12 +14,12 @@ public class Monitor extends Command {
     private int retryInterval;
     private TimePeriod checkPeriod;
     private TimePeriod notificationPeriod;
-    private ArrayList<Object> notificationOptions;
+    private Set<Object> notificationOptions;
     private Set<Object> parents;
     private Set<Contact> contact;
     private Set<Group> contactGroup;
 
-    public Monitor(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, Set<Object> parents, Set<Contact> contact, Set<Group> contactGroup) {
+    public Monitor(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, Set<Object> notificationOptions, Set<Object> parents, Set<Contact> contact, Set<Group> contactGroup) {
         super(name, commandLine);
         this.hostName = hostName;
         this.displayName = displayName;
@@ -99,11 +99,11 @@ public class Monitor extends Command {
         this.notificationPeriod = notificationPeriod;
     }
 
-    public ArrayList<Object> getNotificationOptions() {
+    public Set<Object> getNotificationOptions() {
         return notificationOptions;
     }
 
-    public void setNotificationOptions(ArrayList<Object> notificationOptions) {
+    public void setNotificationOptions(Set<Object> notificationOptions) {
         this.notificationOptions = notificationOptions;
     }
 

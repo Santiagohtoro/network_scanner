@@ -8,7 +8,7 @@ public class Service extends Monitor{
     private Set<Group> serviceGroups;
     private String serviceDescription;
 
-    public Service(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, Set<Object> parents, Set<Contact> contact, Set<Group> contactGroup, Long id, Set<Group> serviceGroups, String serviceDescription) {
+    public Service(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, Set<Object> notificationOptions, Set<Object> parents, Set<Contact> contact, Set<Group> contactGroup, Long id, Set<Group> serviceGroups, String serviceDescription) {
         super(name, commandLine, hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
         this.id = id;
         this.serviceGroups = serviceGroups;
