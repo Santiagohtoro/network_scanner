@@ -1,4 +1,4 @@
-package ScanerRedes.Options;
+package ScanerRedes.ConsoleMenu;
 
 public abstract class MenuOption {
 

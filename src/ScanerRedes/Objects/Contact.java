@@ -76,4 +76,21 @@ public class Contact{
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
+
+    public void setGroup(Group group){
+        contactGroup.add(group);
+    }
+
+    @Override
+    public String toString() {
+
+        return  "Contact{" +
+                "name='" + name + '\'' +
+                ", contactGroup=" + contactGroup +
+                ", notificationsEnabled=" + notificationsEnabled +
+                ", notificationsCommand=" + notificationsCommand +
+                ", email='" + email + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                '}';
+    }
 }

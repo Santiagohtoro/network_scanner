@@ -1,7 +1,5 @@
 package ScanerRedes.ConsoleMenu;
 
-import ScanerRedes.Options.MenuOption;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -28,5 +28,9 @@ public class Host extends Monitor{
     public void setHostGroup(Set<Group> hostGroup) {
         this.hostGroup = hostGroup;
     }
+
+    public void setGroup(Group group){
+        hostGroup.add(group);
+    }
 }
 

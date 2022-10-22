@@ -2,6 +2,7 @@ package ScanerRedes.Objects;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ public class Group {
     private String displayName;
     private Set<Object> members;
 
-    public Group(String name, String displayName, Set<Object> members) {
+    public Group(String name, String displayName) {
         this.name = name;
         this.displayName = displayName;
         this.members = members;
@@ -36,7 +37,20 @@ public class Group {
         return members;
     }
 
-    public void setMembers(Set<Object> members) {
-        this.members = members;
+
+
+    public void addMember(Set<Object> member){
+        this.members.add(member);
+        if (member instanceof Contact contact) {
+            contact.setGroup(this);
+        }
+
+        if (member instanceof Host host) {
+            host.setGroup(this);
+        }
+
+        if (member instanceof Service service) {
+            service.setGroup(this);
+        }
     }
 }

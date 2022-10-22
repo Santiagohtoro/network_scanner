@@ -38,4 +38,17 @@ public class Service extends Monitor{
     public void setServiceDescription(String serviceDescription) {
         this.serviceDescription = serviceDescription;
     }
+
+    public void setGroup(Group group){
+        serviceGroups.add(group);
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" +
+                "id=" + id +
+                ", serviceGroups=" + serviceGroups +
+                ", serviceDescription='" + serviceDescription + '\'' +
+                '}';
+    }
 }

@@ -29,4 +29,9 @@ public class Command{
     public void setCommandLine(String commandLine) {
         this.commandLine = commandLine;
     }
+
+    @Override
+    public String toString() {
+        return "Type: Comando, Name: " + name + ", Command Line: "+ commandLine;
+    }
 }

@@ -28,4 +28,12 @@ public class TimePeriod{
     public void setDefinition(HashMap<String, Integer> definition) {
         this.definition = definition;
     }
+
+    @Override
+    public String toString() {
+        return "TimePeriod{" +
+                "name='" + name + '\'' +
+                ", definition=" + definition +
+                '}';
+    }
 }
