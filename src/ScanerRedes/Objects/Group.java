@@ -1,20 +1,17 @@
 package ScanerRedes.Objects;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Group {
     private String name;
     private String displayName;
-    private Set<Object> members;
+    private ArrayList<Object> members;
 
     public Group(String name, String displayName) {
         this.name = name;
         this.displayName = displayName;
-        this.members = members;
+        this.members = new ArrayList();
     }
 
     public String getName() {
@@ -33,24 +30,33 @@ public class Group {
         this.displayName = displayName;
     }
 
-    public Set<Object> getMembers() {
-        return members;
+    public Object[] getMembers() {
+        Object[] listMember = members.toArray();
+        return listMember;
     }
 
+    public void setMembers(ArrayList<Object> members) {
+        this.members = members;
+    }
 
-
-    public void addMember(Set<Object> member){
-        this.members.add(member);
-        if (member instanceof Contact contact) {
-            contact.setGroup(this);
+    @Override
+    public String toString() {
+        String[] Members= new String[members.size()];
+        int i = 0;
+        for (Object member: members) {
+            if(member instanceof Contact){
+                Contact contact = (Contact) member;
+                Members[i]=contact.getName();
+            }
+            if(member instanceof Host){
+                Host host = (Host) member;
+                Members[i]=host.getHostName();
+            }
+            if(member instanceof Service){
+                Service service = (Service) member;
+                Members[i]=service.getDisplayName();
+            }
         }
-
-        if (member instanceof Host host) {
-            host.setGroup(this);
-        }
-
-        if (member instanceof Service service) {
-            service.setGroup(this);
-        }
+        return "Type: Groups, name: "+this.name+ ", members"+ Arrays.toString((Object[])Members);
     }
 }

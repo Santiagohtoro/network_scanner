@@ -14,12 +14,12 @@ public class Monitor extends Command {
     private int retryInterval;
     private TimePeriod checkPeriod;
     private TimePeriod notificationPeriod;
-    private Set<Object> notificationOptions;
-    private Set<Object> parents;
-    private Set<Contact> contact;
-    private Set<Group> contactGroup;
+    private ArrayList<Object> notificationOptions;
+    private ArrayList<Object> parents;
+    private ArrayList<Contact> contact;
+    private ArrayList<Group> contactGroup;
 
-    public Monitor(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, Set<Object> notificationOptions, Set<Object> parents, Set<Contact> contact, Set<Group> contactGroup) {
+    public Monitor(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, ArrayList<Object> parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup) {
         super(name, commandLine);
         this.hostName = hostName;
         this.displayName = displayName;
@@ -99,35 +99,54 @@ public class Monitor extends Command {
         this.notificationPeriod = notificationPeriod;
     }
 
-    public Set<Object> getNotificationOptions() {
+    public ArrayList<Object> getNotificationOptions() {
         return notificationOptions;
     }
 
-    public void setNotificationOptions(Set<Object> notificationOptions) {
+    public void setNotificationOptions(ArrayList<Object> notificationOptions) {
         this.notificationOptions = notificationOptions;
     }
 
-    public Set<Object> getParents() {
+    public ArrayList<Object> getParents() {
         return parents;
     }
 
-    public void setParents(Set<Object> parents) {
+    public void setParents(ArrayList<Object> parents) {
         this.parents = parents;
     }
 
-    public Set<Contact> getContact() {
+    public ArrayList<Contact> getContact() {
         return contact;
     }
 
-    public void setContact(Set<Contact> contact) {
+    public void setContact(ArrayList<Contact> contact) {
         this.contact = contact;
     }
 
-    public Set<Group> getContactGroup() {
+    public ArrayList<Group> getContactGroup() {
         return contactGroup;
     }
 
-    public void setContactGroup(Set<Group> contactGroup) {
+    public void setContactGroup(ArrayList<Group> contactGroup) {
         this.contactGroup = contactGroup;
+    }
+
+    @Override
+    public String toString() {
+        return  "Type: Monitor, host name: "+hostName +", diplay name: "+displayName+ ", check command: "+checkCommand.getName()+", max check attemps: "+maxCheckAttemps+", check interval"+checkInterval+", retry interval: "+retryInterval+", check period: "+checkPeriod.getName()+", notification period: "+notificationPeriod.getName()+ ", notification options"+notificationOptions+", contacts: "+contact+", Contacts Group "+contactGroup;
+                /*"Monitor{" +
+                "hostName='" + hostName + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", checkCommand=" + checkCommand +
+                ", maxCheckAttemps=" + maxCheckAttemps +
+                ", checkInterval=" + checkInterval +
+                ", retryInterval=" + retryInterval +
+                ", checkPeriod=" + checkPeriod +
+                ", notificationPeriod=" + notificationPeriod +
+                ", notificationOptions=" + notificationOptions +
+                ", parents=" + parents +
+                ", contact=" + contact +
+                ", contactGroup=" + contactGroup +
+                '}';*/
     }
 }

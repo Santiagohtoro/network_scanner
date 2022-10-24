@@ -2,6 +2,7 @@ package ScanerRedes.Objects;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 
 /*Contactos: personas a las que el sistema de monitoreo notifica. Los contactos deben quedar
@@ -14,15 +15,15 @@ definidos por los siguientes atributos mínimos.
 ▪ Mobile number*/
 public class Contact{
     private String name;
-    private Set<Group> contactGroup;
+    private ArrayList<Group> contactGroup;
     private Boolean notificationsEnabled;
     private Command notificationsCommand;
     private String email;
     private String mobileNumber;
 
-    public Contact(String name, Set<Group> contactGroup, Boolean notificationsEnabled, Command notificationsCommand, String email, String mobileNumber) {
+    public Contact(String name, ArrayList<Group> contactGroup, Boolean notificationsEnabled, Command notificationsCommand, String email, String mobileNumber) {
         this.name = name;
-        this.contactGroup = contactGroup;
+        this.contactGroup = new ArrayList<>();
         this.notificationsEnabled = notificationsEnabled;
         this.notificationsCommand = notificationsCommand;
         this.email = email;
@@ -37,11 +38,11 @@ public class Contact{
         this.name = name;
     }
 
-    public Set<Group> getContactGroup() {
+    public ArrayList<Group> getContactGroup() {
         return contactGroup;
     }
 
-    public void setContactGroup(Set<Group> contactGroup) {
+    public void setContactGroup(ArrayList<Group> contactGroup) {
         this.contactGroup = contactGroup;
     }
 
@@ -77,20 +78,16 @@ public class Contact{
         this.mobileNumber = mobileNumber;
     }
 
-    public void setGroup(Group group){
-        contactGroup.add(group);
-    }
-
     @Override
     public String toString() {
+        String[] groups = new String[contactGroup.size()];
+        System.out.println(groups);
+        int i = 0;
 
-        return  "Contact{" +
-                "name='" + name + '\'' +
-                ", contactGroup=" + contactGroup +
-                ", notificationsEnabled=" + notificationsEnabled +
-                ", notificationsCommand=" + notificationsCommand +
-                ", email='" + email + '\'' +
-                ", mobileNumber='" + mobileNumber + '\'' +
-                '}';
+        for(Group group : contactGroup ){
+            groups[i]= group.getName();
+            i++;
+        }
+        return "Type: Contact, name: "+this.name+", notification enabled: "+this.notificationsEnabled+", notification command: "+this.notificationsCommand+", Email: "+ this.email+", mobile number: "+this.mobileNumber+"contact groups: "+ Arrays.toString((Object[]) groups);
     }
 }
