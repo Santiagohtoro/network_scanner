@@ -30,14 +30,14 @@ public class Group {
         this.displayName = displayName;
     }
 
-    public Object[] getMembers() {
+   /* public Object[] getMembers() {
         Object[] listMember = members.toArray();
         return listMember;
     }
 
     public void setMembers(ArrayList<Object> members) {
         this.members = members;
-    }
+    }*/
 
     public void addMember(Object object){
         members.add(object) ;
