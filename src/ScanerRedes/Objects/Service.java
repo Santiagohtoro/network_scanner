@@ -5,23 +5,13 @@ import java.util.Arrays;
 import java.util.Set;
 
 public class Service extends Monitor{
-    private Long id;
     private ArrayList<Group> serviceGroups;
     private String serviceDescription;
 
-    public Service(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, Long id, ArrayList<Group> serviceGroups, String serviceDescription) {
-        super(hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
-        this.id = id;
+    public Service(String hostName, Command checkCommand, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Group> serviceGroups, String serviceDescription) {
+        super(hostName, checkCommand, maxCheckAttemps, checkPeriod, notificationPeriod);
         this.serviceGroups = serviceGroups;
         this.serviceDescription = serviceDescription;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public ArrayList<Group> getServiceGroups() {

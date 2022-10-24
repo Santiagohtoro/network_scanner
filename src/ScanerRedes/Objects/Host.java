@@ -9,10 +9,10 @@ public class Host extends Monitor{
     private ArrayList<Group> hostGroup;
 
 
-    public Host(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, String address, ArrayList<Group> hostGroup) {
-        super(hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
+    public Host(String hostName, Command checkCommand, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, String address) {
+        super(hostName, checkCommand, maxCheckAttemps, checkPeriod, notificationPeriod);
         this.address = address;
-        this.hostGroup = hostGroup;
+        this.hostGroup = new ArrayList<>();
     }
 
     public String getAddress() {
@@ -43,7 +43,7 @@ public class Host extends Monitor{
 
             i++;
         }
-        return super.toString()+", Host groups"+ Arrays.toString((Object[])hostGroup)+", Address "+ this.address;
+        return super.toString()+", Host groups"+ Arrays.toString((Object[])hostGroup)+", Address "+ address;
     }
 
 }

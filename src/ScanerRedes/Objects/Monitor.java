@@ -19,19 +19,14 @@ public class Monitor {
     private ArrayList<Contact> contact;
     private ArrayList<Group> contactGroup;
 
-    public Monitor(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup) {
+    public Monitor(String hostName, Command checkCommand, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod) {
         this.hostName = hostName;
-        this.displayName = displayName;
         this.checkCommand = checkCommand;
         this.maxCheckAttemps = maxCheckAttemps;
-        this.checkInterval = checkInterval;
-        this.retryInterval = retryInterval;
         this.checkPeriod = checkPeriod;
         this.notificationPeriod = notificationPeriod;
-        this.notificationOptions = notificationOptions;
-        this.parents = parents;
-        this.contact = contact;
-        this.contactGroup = contactGroup;
+        this.contact = new ArrayList();
+        this.contactGroup = new ArrayList();
     }
 
     public String getHostName() {
