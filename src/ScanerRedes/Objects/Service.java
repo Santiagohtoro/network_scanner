@@ -9,8 +9,8 @@ public class Service extends Monitor{
     private ArrayList<Group> serviceGroups;
     private String serviceDescription;
 
-    public Service(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, ArrayList<Object> parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, Long id, ArrayList<Group> serviceGroups, String serviceDescription) {
-        super(name, commandLine, hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
+    public Service(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, Long id, ArrayList<Group> serviceGroups, String serviceDescription) {
+        super(hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
         this.id = id;
         this.serviceGroups = serviceGroups;
         this.serviceDescription = serviceDescription;
@@ -40,11 +40,14 @@ public class Service extends Monitor{
         this.serviceDescription = serviceDescription;
     }
 
+    public void setGroup (Group group){
+        this.serviceGroups.add(group);
+    }
     @Override
     public String toString() {
         int i=0;
         String[] serviceGroup = new String[serviceGroups.size()];
-        System.out.println(serviceGroup);
+
 
         for (Group group:serviceGroups){
             serviceGroup[i]=group.getName();
@@ -53,10 +56,6 @@ public class Service extends Monitor{
         return "Descripcion: "+serviceDescription+", Service groups "+Arrays.toString((Object[])serviceGroup);
 
 
-                /*"Service{" +
-                "id=" + id +
-                ", serviceGroups=" + serviceGroups +
-                ", serviceDescription='" + serviceDescription + '\'' +
-                '}';*/
+
     }
 }

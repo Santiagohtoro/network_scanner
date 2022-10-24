@@ -33,13 +33,10 @@ public class TimePeriod{
     public String toString() {
         String DefinitionValue = "";
 
-        /*for(String Value: definition.keySet()){
-            DefinitionValue += Value+": "+ definition.get(Value)[0]+", "+ definition.get(Value)[1];
-        }*/
-        return //"Type: TimePeriod, name: "+ name +", definition "+DefinitionValue;
-                "TimePeriod{" +
-                "name='" + name + '\'' +
-                ", definition=" + definition +
-                '}';
+        for(String Value: definition.keySet()){
+            DefinitionValue += Value+ definition.get(Value)[0]+", "+ definition.get(Value)[1]+"\n";
+        }
+        return "Type: TimePeriod, name: "+ name +", definition : \n"+DefinitionValue;
+
     }
 }

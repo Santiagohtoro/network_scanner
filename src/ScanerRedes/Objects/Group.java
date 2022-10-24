@@ -39,6 +39,21 @@ public class Group {
         this.members = members;
     }
 
+    public void addMember(Object object){
+        members.add(object) ;
+        if(object instanceof Host){
+            Host host =(Host)object ;
+            host.setGroup(this);
+        }
+        if(object instanceof Service){
+            Service service =(Service)object ;
+            service.setGroup(this);
+        }
+        if(object instanceof Contact){
+            Contact contact =(Contact)object ;
+            contact.setGroup(this);
+        }
+    }
     @Override
     public String toString() {
         String[] Members= new String[members.size()];

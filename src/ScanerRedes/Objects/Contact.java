@@ -21,14 +21,15 @@ public class Contact{
     private String email;
     private String mobileNumber;
 
-    public Contact(String name, ArrayList<Group> contactGroup, Boolean notificationsEnabled, Command notificationsCommand, String email, String mobileNumber) {
+    public Contact(String name, Boolean notificationsEnabled, Command notificationsCommand, String email, String mobileNumber) {
         this.name = name;
-        this.contactGroup = new ArrayList<>();
         this.notificationsEnabled = notificationsEnabled;
         this.notificationsCommand = notificationsCommand;
         this.email = email;
         this.mobileNumber = mobileNumber;
+        this.contactGroup = new ArrayList();
     }
+
 
     public String getName() {
         return name;
@@ -78,16 +79,19 @@ public class Contact{
         this.mobileNumber = mobileNumber;
     }
 
+    public void setGroup (Group group){
+        this.contactGroup.add(group);
+    }
     @Override
     public String toString() {
         String[] groups = new String[contactGroup.size()];
-        System.out.println(groups);
+
         int i = 0;
 
         for(Group group : contactGroup ){
             groups[i]= group.getName();
             i++;
         }
-        return "Type: Contact, name: "+this.name+", notification enabled: "+this.notificationsEnabled+", notification command: "+this.notificationsCommand+", Email: "+ this.email+", mobile number: "+this.mobileNumber+"contact groups: "+ Arrays.toString((Object[]) groups);
+        return "Type: Contact, name: "+this.name+", notification enabled: "+this.notificationsEnabled+", notification command: "+this.notificationsCommand+", Email: "+ this.email+", mobile number: "+this.mobileNumber+", Contact groups: "+ Arrays.toString((Object[]) groups);
     }
 }

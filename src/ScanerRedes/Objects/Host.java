@@ -8,8 +8,9 @@ public class Host extends Monitor{
     private String address;
     private ArrayList<Group> hostGroup;
 
-    public Host(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, ArrayList<Object> parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, String address, ArrayList<Group> hostGroup) {
-        super(name, commandLine, hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
+
+    public Host(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup, String address, ArrayList<Group> hostGroup) {
+        super(hostName, displayName, checkCommand, maxCheckAttemps, checkInterval, retryInterval, checkPeriod, notificationPeriod, notificationOptions, parents, contact, contactGroup);
         this.address = address;
         this.hostGroup = hostGroup;
     }
@@ -30,13 +31,16 @@ public class Host extends Monitor{
         this.hostGroup = hostGroup;
     }
 
+    public void setGroup (Group group){
+        this.hostGroup.add(group);
+    }
     @Override
     public String toString() {
         int i = 0;
         String[] hostGroup = new String[this.hostGroup.size()];
         for (Group group: this.hostGroup) {
             hostGroup[i]=group.getName();
-            System.out.println(hostGroup[i]);
+
             i++;
         }
         return super.toString()+", Host groups"+ Arrays.toString((Object[])hostGroup)+", Address "+ this.address;

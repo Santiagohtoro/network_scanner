@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Set;
 
-public class Monitor extends Command {
+public class Monitor {
     private String hostName;
     private String displayName;
     private Command checkCommand;
@@ -14,13 +14,12 @@ public class Monitor extends Command {
     private int retryInterval;
     private TimePeriod checkPeriod;
     private TimePeriod notificationPeriod;
-    private ArrayList<Object> notificationOptions;
-    private ArrayList<Object> parents;
+    private String notificationOptions;
+    private String parents;
     private ArrayList<Contact> contact;
     private ArrayList<Group> contactGroup;
 
-    public Monitor(String name, String commandLine, String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Object> notificationOptions, ArrayList<Object> parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup) {
-        super(name, commandLine);
+    public Monitor(String hostName, String displayName, Command checkCommand, int maxCheckAttemps, int checkInterval, int retryInterval, TimePeriod checkPeriod, TimePeriod notificationPeriod, String notificationOptions, String parents, ArrayList<Contact> contact, ArrayList<Group> contactGroup) {
         this.hostName = hostName;
         this.displayName = displayName;
         this.checkCommand = checkCommand;
@@ -99,19 +98,19 @@ public class Monitor extends Command {
         this.notificationPeriod = notificationPeriod;
     }
 
-    public ArrayList<Object> getNotificationOptions() {
+    public String getNotificationOptions() {
         return notificationOptions;
     }
 
-    public void setNotificationOptions(ArrayList<Object> notificationOptions) {
+    public void setNotificationOptions(String notificationOptions) {
         this.notificationOptions = notificationOptions;
     }
 
-    public ArrayList<Object> getParents() {
+    public String getParents() {
         return parents;
     }
 
-    public void setParents(ArrayList<Object> parents) {
+    public void setParents(String parents) {
         this.parents = parents;
     }
 
@@ -134,19 +133,6 @@ public class Monitor extends Command {
     @Override
     public String toString() {
         return  "Type: Monitor, host name: "+hostName +", diplay name: "+displayName+ ", check command: "+checkCommand.getName()+", max check attemps: "+maxCheckAttemps+", check interval"+checkInterval+", retry interval: "+retryInterval+", check period: "+checkPeriod.getName()+", notification period: "+notificationPeriod.getName()+ ", notification options"+notificationOptions+", contacts: "+contact+", Contacts Group "+contactGroup;
-                /*"Monitor{" +
-                "hostName='" + hostName + '\'' +
-                ", displayName='" + displayName + '\'' +
-                ", checkCommand=" + checkCommand +
-                ", maxCheckAttemps=" + maxCheckAttemps +
-                ", checkInterval=" + checkInterval +
-                ", retryInterval=" + retryInterval +
-                ", checkPeriod=" + checkPeriod +
-                ", notificationPeriod=" + notificationPeriod +
-                ", notificationOptions=" + notificationOptions +
-                ", parents=" + parents +
-                ", contact=" + contact +
-                ", contactGroup=" + contactGroup +
-                '}';*/
+
     }
 }
