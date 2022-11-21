@@ -8,12 +8,13 @@ public class Host extends Monitor{
     private String address;
     private ArrayList<Group> hostGroup;
 
-
-    public Host(String hostName, Command checkCommand, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, String address) {
-        super(hostName, checkCommand, maxCheckAttemps, checkPeriod, notificationPeriod);
+    public Host(String hostName, Command checkCommand, int retryInterval, int checkInterval, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, String address) {
+        super(hostName, checkCommand, retryInterval, checkInterval, maxCheckAttemps, checkPeriod, notificationPeriod);
         this.address = address;
         this.hostGroup = new ArrayList<>();
     }
+
+
 
     public String getAddress() {
         return address;

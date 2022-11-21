@@ -8,11 +8,13 @@ public class Service extends Monitor{
     private ArrayList<Group> serviceGroups;
     private String serviceDescription;
 
-    public Service(String hostName, Command checkCommand, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Group> serviceGroups, String serviceDescription) {
-        super(hostName, checkCommand, maxCheckAttemps, checkPeriod, notificationPeriod);
+    public Service(String hostName, Command checkCommand, int retryInterval, int checkInterval, int maxCheckAttemps, TimePeriod checkPeriod, TimePeriod notificationPeriod, ArrayList<Group> serviceGroups, String serviceDescription) {
+        super(hostName, checkCommand, retryInterval, checkInterval, maxCheckAttemps, checkPeriod, notificationPeriod);
         this.serviceGroups = serviceGroups;
         this.serviceDescription = serviceDescription;
     }
+
+
 
     public ArrayList<Group> getServiceGroups() {
         return serviceGroups;

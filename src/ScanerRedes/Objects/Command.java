@@ -14,6 +14,10 @@ public class Command{
         this.commandLine = commandLine;
     }
 
+    public Command() {
+
+    }
+
     public String getName() {
         return name;
     }
